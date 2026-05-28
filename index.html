@@ -1879,6 +1879,82 @@ button, .nav-item, .todo-check, .habit-check { touch-action: manipulation; }
 .ie-toggle-row:hover { background:var(--bg3); }
 .ie-toggle-row input[type=checkbox] { width:15px;height:15px;accent-color:var(--accent);cursor:pointer; }
 .ie-danger-zone { margin-top:28px;padding:18px 20px;background:rgba(255,92,106,0.05);border:1.5px solid rgba(255,92,106,0.2);border-radius:14px; }
+/* ============================================================
+   BREAK AGENDA
+   ============================================================ */
+.brk-stat-strip { display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px; }
+.brk-stat-card { background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all var(--transition); }
+.brk-stat-card:hover { transform:translateY(-2px);box-shadow:var(--shadow-sm); }
+.brk-stat-num { font-family:'Syne',sans-serif;font-size:24px;font-weight:800; }
+.brk-stat-lbl { font-size:11px;color:var(--text3);margin-top:3px; }
+
+.brk-layout { display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start; }
+.brk-left { display:flex;flex-direction:column;gap:0; }
+.brk-right { display:flex;flex-direction:column;gap:16px;position:sticky;top:20px; }
+
+/* Pomodoro status banner */
+.brk-pomo-banner { background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin-bottom:16px;transition:all var(--transition); }
+.brk-pomo-banner.active { border-color:rgba(108,99,255,0.3);background:linear-gradient(135deg,rgba(108,99,255,0.06),var(--bg2)); }
+.brk-pomo-banner.break-active { border-color:rgba(6,214,160,0.3);background:linear-gradient(135deg,rgba(6,214,160,0.06),var(--bg2)); }
+.brk-pomo-icon { font-size:28px;flex-shrink:0; }
+.brk-pomo-info { flex:1 }
+.brk-pomo-title { font-family:'Syne',sans-serif;font-size:14px;font-weight:700; }
+.brk-pomo-sub { font-size:12px;color:var(--text2);margin-top:2px; }
+.brk-pomo-badge { padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700; }
+
+/* Recommendations */
+.brk-recommendation { margin-bottom:16px; }
+.brk-rec-label { font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px; }
+.brk-rec-cards { display:flex;gap:10px;flex-wrap:wrap; }
+.brk-rec-card { background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;padding:14px 16px;flex:1;min-width:140px;cursor:pointer;transition:all var(--transition); }
+.brk-rec-card:hover { border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-sm); }
+.brk-rec-card-icon { font-size:24px;margin-bottom:8px; }
+.brk-rec-card-name { font-size:13px;font-weight:600; }
+.brk-rec-card-meta { font-size:11px;color:var(--text3);margin-top:3px; }
+
+/* Break schedule list */
+.brk-item { display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--border);transition:all var(--transition); }
+.brk-item:last-child { border-bottom:none; }
+.brk-item:hover { background:var(--bg3);border-radius:10px;padding:12px 10px; }
+.brk-item-icon { font-size:22px;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.brk-item-info { flex:1;min-width:0; }
+.brk-item-title { font-size:13px;font-weight:600; }
+.brk-item-meta { font-size:11px;color:var(--text3);margin-top:2px; }
+.brk-item-actions { display:flex;gap:6px;opacity:0;transition:opacity .15s; }
+.brk-item:hover .brk-item-actions { opacity:1; }
+.brk-item-btn { width:28px;height:28px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s; }
+.brk-item-btn:hover { border-color:var(--accent);color:var(--accent); }
+.brk-item-btn.done { background:rgba(6,214,160,0.12);border-color:rgba(6,214,160,0.3);color:var(--success); }
+.brk-item-btn.del:hover { border-color:var(--danger);color:var(--danger); }
+.brk-item.completed .brk-item-title { text-decoration:line-through;color:var(--text3); }
+.brk-empty { font-size:13px;color:var(--text3);padding:24px;text-align:center; }
+
+/* Break timer card */
+.brk-timer-card { background:linear-gradient(135deg,rgba(6,214,160,0.08),var(--bg2));border:1.5px solid rgba(6,214,160,0.25);border-radius:18px;padding:24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px; }
+.brk-timer-icon { font-size:36px; }
+.brk-timer-title { font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--success); }
+.brk-timer-ring-wrap { position:relative;display:flex;align-items:center;justify-content:center; }
+.brk-timer-display { position:absolute;font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--text); }
+.brk-timer-btn { width:44px;height:44px;border-radius:50%;background:var(--success);border:none;color:white;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s; }
+.brk-timer-btn:hover { transform:scale(1.1); }
+.brk-timer-btn.secondary { background:var(--bg3);color:var(--text2);border:1px solid var(--border); }
+.brk-timer-btn.secondary:hover { border-color:var(--accent);color:var(--accent); }
+
+/* Break library */
+.brk-library-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px; }
+.brk-lib-card { background:var(--bg3);border:1.5px solid var(--border);border-radius:14px;padding:14px;cursor:pointer;transition:all var(--transition);position:relative;overflow:hidden; }
+.brk-lib-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0; }
+.brk-lib-card:hover { transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:rgba(108,99,255,0.2); }
+.brk-lib-card.filtered { display:none; }
+.brk-lib-icon { font-size:24px;margin-bottom:8px; }
+.brk-lib-name { font-size:13px;font-weight:600; }
+.brk-lib-meta { font-size:11px;color:var(--text3);margin-top:3px; }
+.brk-lib-start { position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;font-size:10px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s; }
+.brk-lib-card:hover .brk-lib-start { opacity:1; }
+.brk-type-filter-btn { padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;background:var(--bg3);border:1.5px solid var(--border);color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap; }
+.brk-type-filter-btn.active { background:rgba(6,214,160,0.12);border-color:rgba(6,214,160,0.35);color:var(--success); }
+
+@media (max-width:900px) { .brk-layout{grid-template-columns:1fr;} .brk-stat-strip{grid-template-columns:repeat(2,1fr);} .brk-right{position:static;} }
 </style>
 </head>
 <body>
@@ -1923,6 +1999,9 @@ button, .nav-item, .todo-check, .habit-check { touch-action: manipulation; }
       </div>
       <div class="nav-item" data-page="projects">
         <i class="fas fa-rocket"></i> Projects
+      </div>
+      <div class="nav-item" data-page="breaks">
+        <i class="fas fa-leaf"></i> Break Agenda
       </div>
       <div class="nav-item" data-page="data">
         <i class="fas fa-database"></i> Import / Export
@@ -2642,6 +2721,123 @@ button, .nav-item, .todo-check, .habit-check { touch-action: manipulation; }
         </div>
       </div>
 
+      <!-- BREAK AGENDA PAGE -->
+      <div class="page" id="breaksPage">
+        <!-- Top stat strip -->
+        <div class="brk-stat-strip" id="brkStatStrip"></div>
+
+        <div class="brk-layout">
+          <!-- LEFT: dashboard + recommendation -->
+          <div class="brk-left">
+            <!-- Pomodoro status banner -->
+            <div class="brk-pomo-banner" id="brkPomoBanner">
+              <div class="brk-pomo-icon">🍅</div>
+              <div class="brk-pomo-info">
+                <div class="brk-pomo-title" id="brkPomoTitle">Pomodoro Status</div>
+                <div class="brk-pomo-sub" id="brkPomoSub">Start a focus session to activate break recommendations</div>
+              </div>
+              <div class="brk-pomo-badge" id="brkPomoBadge"></div>
+            </div>
+
+            <!-- Smart recommendation -->
+            <div class="brk-recommendation" id="brkRecommendation">
+              <div class="brk-rec-label">💡 Recommended Now</div>
+              <div class="brk-rec-cards" id="brkRecCards"></div>
+            </div>
+
+            <!-- Today's break schedule -->
+            <div class="widget" style="margin-top:16px">
+              <div class="widget-header">
+                <div class="widget-title">📅 Today's Break Schedule</div>
+                <button class="btn-ghost" id="addBreakBtn" style="font-size:12px;padding:6px 12px"><i class="fas fa-plus"></i> Add Break</button>
+              </div>
+              <div id="brkTodayList"></div>
+            </div>
+
+            <!-- Weekly wellness chart -->
+            <div class="widget" style="margin-top:16px">
+              <div class="widget-header">
+                <div class="widget-title">📊 Focus / Break Balance</div>
+                <span class="widget-badge">Last 7 days</span>
+              </div>
+              <div id="brkWeekChart" style="display:flex;gap:8px;align-items:flex-end;height:100px;padding:8px 0 4px"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT: break library + active timer -->
+          <div class="brk-right">
+            <!-- Active break timer -->
+            <div class="brk-timer-card" id="brkTimerCard" style="display:none">
+              <div class="brk-timer-icon" id="brkTimerIcon">🧘</div>
+              <div class="brk-timer-title" id="brkTimerTitle">Break</div>
+              <div class="brk-timer-ring-wrap">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="var(--bg3)" stroke-width="8"/>
+                  <circle id="brkTimerRing" cx="60" cy="60" r="52" fill="none" stroke="var(--success)" stroke-width="8"
+                    stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="0"
+                    transform="rotate(-90 60 60)" style="transition:stroke-dashoffset .5s ease"/>
+                </svg>
+                <div class="brk-timer-display" id="brkTimerDisplay">05:00</div>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:14px">
+                <button class="brk-timer-btn" id="brkTimerPlayBtn"><i class="fas fa-play"></i></button>
+                <button class="brk-timer-btn secondary" id="brkTimerSkipBtn"><i class="fas fa-forward"></i></button>
+              </div>
+            </div>
+
+            <!-- Break library -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-title">🌿 Break Library</div>
+                <div style="display:flex;gap:5px;flex-wrap:wrap" id="brkTypeFilter"></div>
+              </div>
+              <div class="brk-library-grid" id="brkLibraryGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD BREAK MODAL -->
+      <div class="modal-overlay" id="breakModal">
+        <div class="modal" style="max-width:480px">
+          <div class="modal-header">
+            <div class="modal-title" id="breakModalTitle">Schedule a Break</div>
+            <button class="modal-close" id="closeBreakModal"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="form-row">
+            <div class="form-group" style="flex:0 0 70px"><label class="form-label">Icon</label><input type="text" class="form-input" id="brkIcon" value="🧘" style="font-size:22px;text-align:center" maxlength="4"></div>
+            <div class="form-group" style="flex:1"><label class="form-label">Break Title *</label><input type="text" class="form-input" id="brkTitle" placeholder="e.g. Stretch break"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Type</label>
+              <select class="form-input" id="brkType">
+                <option value="stretch">🤸 Stretching</option>
+                <option value="walk">🚶 Walking</option>
+                <option value="hydration">💧 Hydration</option>
+                <option value="meditation">🧘 Meditation</option>
+                <option value="eye">👁️ Eye Rest</option>
+                <option value="breathe">🫁 Deep Breathing</option>
+                <option value="music">🎵 Music</option>
+                <option value="journal">📝 Journaling</option>
+                <option value="read">📖 Reading</option>
+                <option value="exercise">💪 Light Exercise</option>
+                <option value="custom">⭐ Custom</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Duration (min)</label><input type="number" class="form-input" id="brkDuration" value="5" min="1" max="60"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Scheduled Time</label><input type="time" class="form-input" id="brkTime"></div>
+            <div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="brkDate"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Notes</label><textarea class="form-input" id="brkNotes" rows="2" placeholder="What will you do during this break?" style="resize:vertical"></textarea></div>
+          <div class="modal-footer">
+            <button class="btn-ghost" id="cancelBreakModal">Cancel</button>
+            <button class="btn-save" id="saveBreakBtn">Save Break</button>
+          </div>
+        </div>
+      </div>
+
       <!-- DATA PAGE -->
       <div class="page" id="dataPage">
         <!-- Summary stats -->
@@ -3071,6 +3267,7 @@ function _localSave() {
   localStorage.setItem('hf_skillsess', JSON.stringify(skillSessions));
   localStorage.setItem('hf_projects', JSON.stringify(projects));
   localStorage.setItem('hf_flows', JSON.stringify(flowcharts));
+  localStorage.setItem('hf_breaks', JSON.stringify(breaks));
 }
 function save() { saveWithSync(); }
 function load() {
@@ -3087,6 +3284,7 @@ function load() {
     skillSessions = JSON.parse(localStorage.getItem('hf_skillsess')) || {};
     projects = JSON.parse(localStorage.getItem('hf_projects')) || [];
     flowcharts = JSON.parse(localStorage.getItem('hf_flows')) || [];
+    breaks = JSON.parse(localStorage.getItem('hf_breaks')) || [];
     isDark = localStorage.getItem('hf_theme') !== 'light';
     miniTimerEnabled = localStorage.getItem('hf_mini') !== 'false';
   } catch(e) {
@@ -3734,6 +3932,7 @@ function navigateTo(page) {
   if(page === 'systems') renderSystems();
   if(page === 'skills') renderSkillsPage();
   if(page === 'projects') renderProjectsPage();
+  if(page === 'breaks') renderBreaksPage();
   if(page === 'data') renderDataSummary();
   // Close mobile sidebar
   document.getElementById('sidebar').classList.remove('open');
@@ -3752,6 +3951,7 @@ function renderAll() {
   if(activePage === 'systems') renderSystems();
   if(activePage === 'skills') renderSkillsPage();
   if(activePage === 'projects') renderProjectsPage();
+  if(activePage === 'breaks') renderBreaksPage();
 }
 
 // ---- THEME ----
@@ -4105,6 +4305,10 @@ function pomoTick() {
       const isLong = pomoState.sessionsDone % pomoState.rounds === 0;
       setPomoMode(isLong ? 'long' : 'short');
       toast(isLong ? '🌿 Long break!' : '☕ Short break!', 'info');
+      // Update break agenda if visible
+      if(document.getElementById('breaksPage')?.classList.contains('active')) {
+        renderBrkPomoBanner(); renderBrkRecommendations(); renderBrkStats();
+      }
     } else { setPomoMode('focus'); toast('🍅 Focus time!', 'info'); }
   }
 }
@@ -4611,6 +4815,9 @@ let cqmColor = '#6c63ff';
 let calSidebarOpen = true;
 let compactWeekAnchor = null;
 let weekFullDs = null;
+let breaks = [];       // scheduled break sessions
+let brkTimerState = { running:false, secondsLeft:300, totalSeconds:300, interval:null, currentBreak:null };
+let editingBreakId = null;
 
 const HOUR_PX = 52;
 const CAL_HOURS = Array.from({length:24},(_,i)=>i);
@@ -7748,6 +7955,402 @@ window.addEventListener('appinstalled', () => {
   toast('HabitFlow installed! ⚡', 'success');
 });
 
+// ====================================================
+//  BREAK AGENDA SYSTEM
+// ====================================================
+
+const BREAK_TYPES = {
+  stretch:   { icon:'🤸', label:'Stretching',     color:'#06d6a0', desc:'Relieve muscle tension' },
+  walk:      { icon:'🚶', label:'Walking',         color:'#4cc9f0', desc:'Clear your head outside' },
+  hydration: { icon:'💧', label:'Hydration',       color:'#3a86ff', desc:'Drink water, stay hydrated' },
+  meditation:{ icon:'🧘', label:'Meditation',      color:'#8338ec', desc:'Calm your mind' },
+  eye:       { icon:'👁️', label:'Eye Rest',        color:'#fb8500', desc:'20-20-20 rule: look 20ft away' },
+  breathe:   { icon:'🫁', label:'Deep Breathing',  color:'#ff6b9d', desc:'4-7-8 breathing technique' },
+  music:     { icon:'🎵', label:'Music',            color:'#ffd166', desc:'Listen to something relaxing' },
+  journal:   { icon:'📝', label:'Journaling',       color:'#6c63ff', desc:'Write thoughts & reflections' },
+  read:      { icon:'📖', label:'Reading',          color:'#2dc653', desc:'Read something enjoyable' },
+  exercise:  { icon:'💪', label:'Light Exercise',   color:'#ef476f', desc:'Simple movements & stretches' },
+  custom:    { icon:'⭐', label:'Custom',           color:'#aaa',    desc:'Your own break activity' },
+};
+
+const BREAK_LIBRARY = [
+  { type:'stretch',    name:'Full Body Stretch',  duration:5,  desc:'Neck, shoulders, back, legs' },
+  { type:'eye',        name:'Eye Rest (20-20-20)',duration:2,  desc:'Look 20ft away for 20 seconds' },
+  { type:'hydration',  name:'Hydration Break',    duration:2,  desc:'Drink a full glass of water' },
+  { type:'breathe',    name:'Box Breathing',      duration:4,  desc:'4 counts in, hold, out, hold' },
+  { type:'walk',       name:'Short Walk',         duration:10, desc:'Walk around for fresh air' },
+  { type:'meditation', name:'Mini Meditation',    duration:5,  desc:'Guided breathing & mindfulness' },
+  { type:'stretch',    name:'Desk Stretches',     duration:3,  desc:'Shoulder rolls & wrist stretches' },
+  { type:'exercise',   name:'Quick Exercises',    duration:5,  desc:'Jumping jacks or squats' },
+  { type:'music',      name:'Music Break',        duration:5,  desc:'Close eyes and just listen' },
+  { type:'journal',    name:'Gratitude Note',     duration:3,  desc:'Write 3 things you are grateful for' },
+  { type:'breathe',    name:'4-7-8 Breathing',   duration:3,  desc:'Inhale 4s, hold 7s, exhale 8s' },
+  { type:'hydration',  name:'Healthy Snack',      duration:5,  desc:'Fruit, nuts, or light snack' },
+];
+
+// Get smart recommendations based on pomodoro + time of day
+function getBrkRecommendations() {
+  const hour = new Date().getHours();
+  const sessions = pomoState.sessionsDone;
+  const recs = [];
+
+  if(pomoState.mode !== 'focus') {
+    // Currently in a break
+    if(pomoState.mode === 'long') recs.push('meditation','walk','exercise');
+    else recs.push('eye','breathe','hydration');
+  } else if(sessions >= 4) {
+    recs.push('walk','meditation','exercise');
+  } else if(sessions >= 2) {
+    recs.push('stretch','eye','breathe');
+  } else if(hour < 10) {
+    recs.push('breathe','hydration','stretch');
+  } else if(hour >= 14 && hour <= 16) {
+    recs.push('walk','hydration','eye'); // afternoon slump
+  } else {
+    recs.push('eye','hydration','breathe');
+  }
+
+  return [...new Set(recs)].slice(0,3).map(type => ({
+    type, ...BREAK_TYPES[type],
+    duration: type==='walk'?10:type==='meditation'?5:type==='eye'?2:5
+  }));
+}
+
+// ---- Timer ----
+function brkFmt(s) { return Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60); }
+
+function brkUpdateTimerDisplay() {
+  const disp = document.getElementById('brkTimerDisplay');
+  const ring = document.getElementById('brkTimerRing');
+  const btn  = document.getElementById('brkTimerPlayBtn');
+  if(disp) disp.textContent = brkFmt(brkTimerState.secondsLeft);
+  if(ring) {
+    const circ=2*Math.PI*52;
+    const prog=brkTimerState.secondsLeft/brkTimerState.totalSeconds;
+    ring.style.strokeDashoffset = circ*(1-prog);
+  }
+  if(btn) btn.innerHTML = brkTimerState.running
+    ? '<i class="fas fa-pause"></i>'
+    : '<i class="fas fa-play"></i>';
+}
+
+function startBrkTimer(brk) {
+  clearInterval(brkTimerState.interval);
+  brkTimerState.currentBreak = brk;
+  brkTimerState.totalSeconds = (brk.duration||5)*60;
+  brkTimerState.secondsLeft  = brkTimerState.totalSeconds;
+  brkTimerState.running = false;
+  const card = document.getElementById('brkTimerCard');
+  if(card) {
+    card.style.display = '';
+    const icon  = document.getElementById('brkTimerIcon');
+    const title = document.getElementById('brkTimerTitle');
+    if(icon)  icon.textContent  = brk.icon || BREAK_TYPES[brk.type]?.icon || '🌿';
+    if(title) title.textContent = brk.name || brk.title || 'Break';
+    // Colour ring to match type
+    const ring = document.getElementById('brkTimerRing');
+    if(ring) ring.style.stroke = BREAK_TYPES[brk.type]?.color || 'var(--success)';
+  }
+  brkUpdateTimerDisplay();
+  // Auto-start
+  brkTimerState.running = true;
+  brkTimerState.interval = setInterval(() => {
+    if(!brkTimerState.running) return;
+    brkTimerState.secondsLeft--;
+    brkUpdateTimerDisplay();
+    if(brkTimerState.secondsLeft <= 0) {
+      clearInterval(brkTimerState.interval);
+      brkTimerState.running = false;
+      toast('🌿 Break complete! Time to focus.','success');
+      // Mark break as done if it was scheduled
+      if(brk.id) {
+        const b = breaks.find(x=>x.id===brk.id);
+        if(b) { b.done=true; b.completedAt=today(); localStorage.setItem('hf_breaks',JSON.stringify(breaks)); }
+      }
+      renderBreaksPage();
+    }
+  },1000);
+}
+
+// ---- Render ----
+function renderBreaksPage() {
+  renderBrkStats();
+  renderBrkPomoBanner();
+  renderBrkRecommendations();
+  renderBrkTodayList();
+  renderBrkWeekChart();
+  renderBrkLibrary();
+}
+
+function renderBrkStats() {
+  const strip = document.getElementById('brkStatStrip');
+  if(!strip) return;
+  const nd = today();
+  const todayBreaks  = breaks.filter(b=>b.date===nd);
+  const doneToday    = todayBreaks.filter(b=>b.done).length;
+  const totalMins    = todayBreaks.filter(b=>b.done).reduce((a,b)=>a+(b.duration||5),0);
+  const focusSess    = pomoState.sessionsDone;
+  const ratio        = focusSess>0 ? Math.round(totalMins / (focusSess*pomoState.focusMins)*100) : 0;
+
+  strip.innerHTML = [
+    { num:focusSess,             lbl:'Focus Sessions', color:'var(--accent)' },
+    { num:doneToday+'/'+todayBreaks.length, lbl:'Breaks Today', color:'var(--success)' },
+    { num:totalMins+'m',         lbl:'Recovery Time',  color:'#4cc9f0' },
+    { num:Math.min(ratio,100)+'%',lbl:'Rest Ratio',    color:'#ffd166' },
+  ].map(s=>`<div class="brk-stat-card">
+    <div class="brk-stat-num" style="color:${s.color}">${s.num}</div>
+    <div class="brk-stat-lbl">${s.lbl}</div>
+  </div>`).join('');
+}
+
+function renderBrkPomoBanner() {
+  const banner = document.getElementById('brkPomoBanner');
+  const title  = document.getElementById('brkPomoTitle');
+  const sub    = document.getElementById('brkPomoSub');
+  const badge  = document.getElementById('brkPomoBadge');
+  if(!banner) return;
+
+  banner.className = 'brk-pomo-banner';
+  const icon = banner.querySelector('.brk-pomo-icon');
+
+  if(pomoState.mode !== 'focus') {
+    banner.classList.add('break-active');
+    if(icon) icon.textContent = '☕';
+    const mins = pomoState.mode==='long'?pomoState.longMins:pomoState.shortMins;
+    if(title) title.textContent = pomoState.mode==='long' ? 'Long Break' : 'Short Break';
+    if(sub)   sub.textContent   = `${brkFmt(pomoState.secondsLeft)} remaining · ${pomoState.sessionsDone} sessions done today`;
+    if(badge) { badge.textContent='Break Time'; badge.style.cssText='background:rgba(6,214,160,0.15);color:var(--success)'; }
+  } else if(pomoState.running) {
+    banner.classList.add('active');
+    if(icon) icon.textContent = '🍅';
+    if(title) title.textContent = 'Focus Session Active';
+    if(sub)   sub.textContent   = `${brkFmt(pomoState.secondsLeft)} remaining · session ${(pomoState.sessionsDone%pomoState.rounds)+1} of ${pomoState.rounds}`;
+    if(badge) { badge.textContent='Focusing'; badge.style.cssText='background:rgba(108,99,255,0.15);color:var(--accent)'; }
+  } else {
+    if(icon) icon.textContent = '🍅';
+    if(title) title.textContent = pomoState.sessionsDone>0 ? `${pomoState.sessionsDone} sessions completed` : 'Pomodoro Timer';
+    if(sub)   sub.textContent = pomoState.sessionsDone>0
+      ? 'Start your next focus session when ready'
+      : 'Start a focus session to activate break recommendations';
+    if(badge) badge.textContent = '';
+  }
+}
+
+function renderBrkRecommendations() {
+  const container = document.getElementById('brkRecCards');
+  if(!container) return;
+  const recs = getBrkRecommendations();
+  container.innerHTML = '';
+  recs.forEach(rec => {
+    const card = document.createElement('div');
+    card.className = 'brk-rec-card';
+    card.innerHTML = `
+      <div class="brk-rec-card-icon">${rec.icon}</div>
+      <div class="brk-rec-card-name">${rec.label}</div>
+      <div class="brk-rec-card-meta">${rec.duration} min · ${rec.desc}</div>`;
+    card.addEventListener('click',()=>{
+      startBrkTimer({ type:rec.type, name:rec.label, duration:rec.duration, icon:rec.icon });
+      toast(`Starting ${rec.label} timer 🌿`,'success');
+    });
+    container.appendChild(card);
+  });
+}
+
+function renderBrkTodayList() {
+  const list = document.getElementById('brkTodayList');
+  if(!list) return;
+  const nd = today();
+  const todayBreaks = breaks.filter(b=>b.date===nd||!b.date).sort((a,b)=>(a.time||'99:99').localeCompare(b.time||'99:99'));
+  list.innerHTML = '';
+  if(!todayBreaks.length) {
+    list.innerHTML='<div class="brk-empty">No breaks scheduled today.<br>Add one or start a timer from the library.</div>';
+    return;
+  }
+  todayBreaks.forEach(brk => {
+    const bt = BREAK_TYPES[brk.type] || BREAK_TYPES.custom;
+    const item = document.createElement('div');
+    item.className = 'brk-item'+(brk.done?' completed':'');
+    item.innerHTML=`
+      <div class="brk-item-icon" style="background:${bt.color}22">${brk.icon||bt.icon}</div>
+      <div class="brk-item-info">
+        <div class="brk-item-title">${brk.title}</div>
+        <div class="brk-item-meta">${bt.label} · ${brk.duration}min${brk.time?' · '+calFmtTime(brk.time):''}</div>
+      </div>
+      <div class="brk-item-actions">
+        <button class="brk-item-btn${brk.done?' done':''}" title="${brk.done?'Undo':'Mark done'}">
+          <i class="fas fa-${brk.done?'undo':'check'}"></i>
+        </button>
+        <button class="brk-item-btn" title="Start timer"><i class="fas fa-play"></i></button>
+        <button class="brk-item-btn del" title="Delete"><i class="fas fa-trash"></i></button>
+      </div>`;
+    const btns = item.querySelectorAll('.brk-item-btn');
+    btns[0].addEventListener('click',()=>{ brk.done=!brk.done; brk.completedAt=brk.done?today():''; localStorage.setItem('hf_breaks',JSON.stringify(breaks)); renderBreaksPage(); });
+    btns[1].addEventListener('click',()=>{ startBrkTimer({...brk, icon:brk.icon||bt.icon, name:brk.title}); toast(`Starting ${brk.title} 🌿`,'success'); });
+    btns[2].addEventListener('click',()=>{ breaks=breaks.filter(x=>x.id!==brk.id); localStorage.setItem('hf_breaks',JSON.stringify(breaks)); renderBreaksPage(); });
+    list.appendChild(item);
+  });
+}
+
+function renderBrkWeekChart() {
+  const chart = document.getElementById('brkWeekChart');
+  if(!chart) return;
+  chart.innerHTML = '';
+  const weekDays = Array.from({length:7},(_,i)=>{ const d=new Date();d.setDate(d.getDate()-6+i);return d; });
+  weekDays.forEach(d=>{
+    const ds = dateStr(d);
+    const focusMinsDay = breaks.filter(b=>b.date===ds&&b.done).reduce((a,b)=>a+(b.duration||5),0);
+    const pomoSess = 0; // approximate
+    const isT = ds===today();
+    const maxH = 80;
+    const h = Math.max(2, Math.min(maxH, focusMinsDay/30*maxH));
+    const col = document.createElement('div');
+    col.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:4px';
+    col.innerHTML=`
+      <div style="font-size:10px;font-weight:700;color:${focusMinsDay>0?'var(--success)':'var(--text3)'}">${focusMinsDay>0?focusMinsDay+'m':''}</div>
+      <div style="flex:1;width:100%;display:flex;align-items:flex-end">
+        <div style="width:100%;height:${h}px;background:${focusMinsDay>0?'var(--success)':'var(--bg3)'};border-radius:6px 6px 0 0;transition:height .5s ease;min-height:2px"></div>
+      </div>
+      <div style="font-size:10px;font-weight:${isT?'800':'500'};color:${isT?'var(--success)':'var(--text3)'}">${DAYS[d.getDay()]}</div>`;
+    chart.appendChild(col);
+  });
+}
+
+function renderBrkLibrary() {
+  const grid = document.getElementById('brkLibraryGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  BREAK_LIBRARY.forEach(brk => {
+    const bt = BREAK_TYPES[brk.type]||BREAK_TYPES.custom;
+    const card = document.createElement('div');
+    card.className = 'brk-lib-card';
+    card.dataset.type = brk.type;
+    card.innerHTML=`
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${bt.color};border-radius:3px 3px 0 0"></div>
+      <div class="brk-lib-icon">${bt.icon}</div>
+      <div class="brk-lib-name">${brk.name}</div>
+      <div class="brk-lib-meta">${brk.duration} min · ${brk.desc}</div>
+      <div class="brk-lib-start"><i class="fas fa-play"></i></div>`;
+    card.addEventListener('click',()=>{
+      startBrkTimer({...brk, icon:bt.icon, name:brk.name});
+      toast(`${bt.icon} ${brk.name} started!`,'success');
+    });
+    grid.appendChild(card);
+  });
+}
+
+function renderBrkTypeFilter() {
+  const filterEl = document.getElementById('brkTypeFilter');
+  if(!filterEl) return;
+  filterEl.innerHTML = '';
+  const types = ['All',...Object.keys(BREAK_TYPES)];
+  types.forEach(type=>{
+    const btn=document.createElement('button');
+    btn.className='brk-type-filter-btn'+(type==='All'?' active':'');
+    btn.textContent = type==='All' ? 'All' : BREAK_TYPES[type].icon+' '+BREAK_TYPES[type].label;
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.brk-type-filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.brk-lib-card').forEach(card=>{
+        card.classList.toggle('filtered', type!=='All' && card.dataset.type!==type);
+      });
+    });
+    filterEl.appendChild(btn);
+  });
+}
+
+function openBreakModal(id=null) {
+  editingBreakId = id;
+  const isEdit = id!==null;
+  const brk = isEdit ? breaks.find(b=>b.id===id) : null;
+  document.getElementById('breakModalTitle').textContent = isEdit ? '✏️ Edit Break' : 'Schedule a Break';
+  document.getElementById('brkIcon').value     = brk?.icon||'🧘';
+  document.getElementById('brkTitle').value    = brk?.title||'';
+  document.getElementById('brkType').value     = brk?.type||'stretch';
+  document.getElementById('brkDuration').value = brk?.duration||5;
+  document.getElementById('brkTime').value     = brk?.time||'';
+  document.getElementById('brkDate').value     = brk?.date||today();
+  document.getElementById('brkNotes').value    = brk?.notes||'';
+  document.getElementById('breakModal').classList.add('open');
+  setTimeout(()=>document.getElementById('brkTitle').focus(),80);
+}
+function closeBreakModal() { document.getElementById('breakModal').classList.remove('open'); editingBreakId=null; }
+
+function initBreaks() {
+  // Pomodoro integration — trigger break suggestions when focus session ends
+  const origPomoBanner = () => {
+    if(document.getElementById('breaksPage')?.classList.contains('active')) {
+      renderBrkPomoBanner(); renderBrkRecommendations(); renderBrkStats();
+    }
+  };
+  // Poll every 5s to sync pomo state with break agenda
+  setInterval(origPomoBanner, 5000);
+
+  // Add break button
+  document.getElementById('addBreakBtn').addEventListener('click',()=>openBreakModal(null));
+  // Save break
+  document.getElementById('saveBreakBtn').addEventListener('click',()=>{
+    const title = document.getElementById('brkTitle').value.trim();
+    if(!title){toast('Break title required','error');return;}
+    const data = {
+      title,
+      icon: document.getElementById('brkIcon').value.trim()||'🧘',
+      type: document.getElementById('brkType').value,
+      duration: parseInt(document.getElementById('brkDuration').value)||5,
+      time: document.getElementById('brkTime').value,
+      date: document.getElementById('brkDate').value||today(),
+      notes: document.getElementById('brkNotes').value.trim(),
+      done: false,
+      completedAt: '',
+    };
+    if(editingBreakId) {
+      const b=breaks.find(x=>x.id===editingBreakId);
+      if(b) Object.assign(b,data);
+      toast('Break updated!','success');
+    } else {
+      breaks.push({id:'brk_'+Date.now(),...data});
+      toast('Break scheduled! 🌿','success');
+    }
+    localStorage.setItem('hf_breaks',JSON.stringify(breaks));
+    closeBreakModal(); renderBreaksPage();
+  });
+  document.getElementById('closeBreakModal').addEventListener('click',closeBreakModal);
+  document.getElementById('cancelBreakModal').addEventListener('click',closeBreakModal);
+  document.getElementById('breakModal').addEventListener('click',e=>{if(e.target===document.getElementById('breakModal'))closeBreakModal();});
+  document.getElementById('brkTitle').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('saveBreakBtn').click();});
+
+  // Break timer controls
+  document.getElementById('brkTimerPlayBtn').addEventListener('click',()=>{
+    brkTimerState.running=!brkTimerState.running;
+    if(brkTimerState.running&&!brkTimerState.interval){
+      brkTimerState.interval=setInterval(()=>{
+        if(!brkTimerState.running)return;
+        brkTimerState.secondsLeft--;
+        brkUpdateTimerDisplay();
+        if(brkTimerState.secondsLeft<=0){
+          clearInterval(brkTimerState.interval);brkTimerState.interval=null;brkTimerState.running=false;
+          toast('🌿 Break complete!','success');
+        }
+      },1000);
+    } else if(!brkTimerState.running){
+      clearInterval(brkTimerState.interval);brkTimerState.interval=null;
+    }
+    brkUpdateTimerDisplay();
+  });
+  document.getElementById('brkTimerSkipBtn').addEventListener('click',()=>{
+    clearInterval(brkTimerState.interval);brkTimerState.interval=null;brkTimerState.running=false;
+    document.getElementById('brkTimerCard').style.display='none';
+    toast('Break skipped','info');
+  });
+
+  // Build type filter for library
+  renderBrkTypeFilter();
+
+  // Auto-trigger break recommendation after pomodoro session ends
+  // Hook into existing pomoTick by wrapping the session-done logic
+  const _origTick = typeof pomoTick === 'function' ? pomoTick : null;
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   load();
   resetDailyTasks();
@@ -7778,6 +8381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkills();
   initProjects();
   initSyncUI();
+  initBreaks();
   // initWeekFullscreen — replaced by new calendar system
   calSelectedDate = today();
 
